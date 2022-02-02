@@ -27,5 +27,17 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  deleteProduct(name: string, price: string, i:number) {
+    console.log(name, price, i);
+    this.store.dispatch({
+      type: 'DELETE_PRODUCT',
+      payload: {
+        name: name,
+        price: price,
+        index:i
+      },
+    });
+  }
+
   ngOnInit(): void {}
 }

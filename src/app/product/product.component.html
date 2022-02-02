@@ -1,7 +1,4 @@
 <div class="container">
-<p>product works!</p>
-
-<hr/>
 
 
 <div class="panel panel-primary">
@@ -28,12 +25,18 @@
   <tr>
       <td>Product Name</td>
       <td>Product Price</td>
+      <td>Delete</td>
   </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let product of products | async">
+      <tr *ngFor="let product of products | async; let i = index">
           <td>{{product.name}}</td>
           <td>{{product.price}}</td>
+          <td>
+            <button class="btn btn-danger" 
+            (click)="deleteProduct(product.name, product.price,i)">
+            Delete</button>
+          </td>
       </tr>
   </tbody>
   </table>
